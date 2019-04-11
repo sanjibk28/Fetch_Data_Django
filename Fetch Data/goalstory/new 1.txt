@@ -1,0 +1,14 @@
+
+
+asotiation rule
+1- A prior
+2- FP growth
+
+support count =60%
+
+t1
+t2
+t3
+t4
+t5
+ 

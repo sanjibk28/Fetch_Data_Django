@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>PLAYER DATA</h1>
+
+
+
+<button onclick="showDiv()">Fetch Data</button>
+
+<div id="welcomeDiv"  style="display:none;" class="answer_list" >
+	{%for pd in playerdata%}
+		{%if pd.STATUS == "Active" %}
+	
+			{{pd.NAME}}<br>
+			
+			<pre><!--div id="statusDiv"-->
+					<div id="1">
+					{{pd.STATUS}}
+					</div>
+					
+				
+				<div id="2" style="display:none;">
+				INACTIVE
+				</div>
+				<!--/div-->
+			<button id="btnClick">Change Status</button>
+			
+			
+			</pre>
+			<br>
+		
+		{%endif%}
+	{%endfor%}
+</div>
+
+
+<script type="text/javascript" >
+function showDiv() {
+   document.getElementById('welcomeDiv').style.display = "block";
+}
+</script>
+
+<script>
+$('#btnClick').on('click',function(){
+    if($('#1').css('display')!='none'){
+    $('#2').html('Inactive').show().siblings('div').hide();
+    }else if($('#2').css('display')!='none'){
+        $('#1').show().siblings('div').hide();
+    }
+});
+</script>
+
+
+</body>
+</html>
